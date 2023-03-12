@@ -21,6 +21,9 @@ jobs:
           - name:
             command:
     steps:
+      - name: Fail immediately
+        run: false
+        if: ${{ matrix.compiler.name == 'GCC' }}
       - name: Loop indefinitely
         run: while true; do sleep 1; done
     
