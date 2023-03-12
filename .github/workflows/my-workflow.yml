@@ -1,0 +1,26 @@
+name: my-workflow
+on:
+  push:
+    branches:
+      - '*'
+jobs:
+  my-job:
+    name: My Job ${{ matrix.compiler.name }} ${{ matrix.sanitize.name }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    strategy:
+      matrix:
+        compiler:
+          - name: GCC
+            command: g++
+          - name: Clang
+            command: clang++
+        sanitize:
+          - name: Valgrind
+            command: valgrind
+          - name:
+            command:
+    steps:
+      - name: Loop indefinitely
+        run: while true; do sleep 1; done
+    
